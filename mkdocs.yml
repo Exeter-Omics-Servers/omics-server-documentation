@@ -1,0 +1,13 @@
+site_name: Exeter Omics Server Documentation
+repo_url: https://github.com/Exeter-Omics-Servers/omics-server-documentation
+site_description: "Documentation for Exeter Omics Servers"
+site_author: "Sam Fletcher"
+copyright: "© 2024, Sam Fletcher"
+theme:
+  logo: logo.jpg
+  favicon: logo.jpg
+  name: material
+  palette:
+    scheme: slate
+    primary: black
+    accent: green
