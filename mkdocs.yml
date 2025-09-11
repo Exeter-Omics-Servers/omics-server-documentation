@@ -2,12 +2,27 @@ site_name: Exeter Omics Server Documentation
 repo_url: https://github.com/Exeter-Omics-Servers/omics-server-documentation
 site_description: "Documentation for Exeter Omics Servers"
 site_author: "Sam Fletcher"
-copyright: "© 2024, Sam Fletcher"
+copyright: "© 2025, Sam Fletcher"
 theme:
   logo: logo.jpg
   favicon: logo.jpg
   name: material
   palette:
-    scheme: slate
-    primary: black
-    accent: green
+    # Light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
