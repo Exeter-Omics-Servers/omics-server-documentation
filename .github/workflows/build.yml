@@ -37,5 +37,5 @@ jobs:
           auto-activate-base: false
           use-only-tar-bz2: true
       - run: |
-          conda info
+          conda activate omics_server_docs
           mkdocs gh-deploy --force
