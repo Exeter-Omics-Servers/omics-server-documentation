@@ -3,7 +3,8 @@
 This repository holds documentation for both the users and admins of Pigeon
 and Manny.
 
-These pages can be accessed [here](www.example.com)
+These pages can be accessed
+[here](https://exeter-omics-servers.github.io/omics-server-documentation/).
 
 ## Building and hosting these pages locally
 
