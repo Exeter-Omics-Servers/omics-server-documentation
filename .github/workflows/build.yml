@@ -10,6 +10,9 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
     steps:
       - uses: actions/checkout@v4
 
@@ -26,7 +29,7 @@ jobs:
             ${{ env.CONDA }}/envs/mkdocs-env
           key: conda-${{ hashFiles('envs/environment.yml') }}
 
-      - name: Setup conda and deploy
+      - name: Setup conda
         uses: conda-incubator/setup-miniconda@v3
         with:
           miniforge-version: "latest"
@@ -36,6 +39,7 @@ jobs:
           environment-file: "envs/environment.yml"
           auto-activate-base: false
           use-only-tar-bz2: true
-      - run: |
-          conda list
+
+      - name: Deploy docs
+        run: |
           mkdocs gh-deploy --force
