@@ -26,7 +26,7 @@ jobs:
             ${{ env.CONDA }}/envs/mkdocs-env
           key: conda-${{ hashFiles('envs/environment.yml') }}
 
-      - name: Set up Conda
+      - name: Setup conda and deploy
         uses: conda-incubator/setup-miniconda@v3
         with:
           miniforge-version: "latest"
