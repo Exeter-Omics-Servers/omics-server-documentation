@@ -36,5 +36,6 @@ jobs:
           environment-file: "envs/environment.yml"
           auto-activate-base: false
           use-only-tar-bz2: true
-        run: |
+      - run: |
+          conda info
           mkdocs gh-deploy --force
