@@ -108,8 +108,7 @@ as your default shell, is determined by the OS and the system administrator. If
 a script only uses core sh functionality then it could probably be invoked by
 any available (compatible) shell. If shell specific features are used, however,
 then the correct shell must be used. On some systems, however, the traditional
-sh may not be available. For example, on slade and ennis, sh points to bash so
-running sh actually runs bash, as highlighted in the section on bash, below.
+sh may not be available.
 
 ### Other possible solution
 

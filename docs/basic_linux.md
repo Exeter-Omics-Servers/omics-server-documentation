@@ -71,16 +71,16 @@ contents by copying something which can do less damage, like a single space.
 ## Help and man Pages
 
 Most, if not all, of the standard commands used on a linux system come with
-help in the form of a 'man' (manual) page. On slade there are over 2,500 man
-pages for standard programs and shell commands. Add the pages for library
-calls, system commands and other types of information and the figure is closer
-to 14,000! However, despite the glut of information available, man pages also
-have a long standing reputation for being very terse and unintelligible for the
-novice user. In practice, they are a good source of information for the correct
-syntax to use for a command, and for command line options which can be used.
-Where they often fall short is in having a lack of usefully explained examples.
-See below on how to find the correct command to use from the thousands which
-are available.
+help in the form of a 'man' (manual) page. On a common system there may be over
+2,500 man pages for standard programs and shell commands. Add the pages for
+library calls, system commands and other types of information and the figure is
+closer to 14,000! However, despite the glut of information available, man pages
+also have a long standing reputation for being very terse and unintelligible
+for the novice user. In practice, they are a good source of information for the
+correct syntax to use for a command, and for command line options which can be
+used. Where they often fall short is in having a lack of usefully explained
+examples. See below on how to find the correct command to use from the
+thousands which are available.
 
 When viewed, the man page is displayed using 'less', described later in this
 guide. 'less' enables the user to scroll through the text one screen at a time
@@ -1212,9 +1212,9 @@ competition occurs. One is to implement a queue system to limit the resources
 which each process can use and to restrict how many user processes can run at
 any given time. This is essentially the method used on most high performance
 HPC systems such as ISCA. A queuing system has also been put in place on ennis,
-details for which are given in a separate guide. The alternative which is being
-tried on slade is to make use of the standard linux command 'nice' which is
-used to alter the priority of running processes.
+details for which are given in a separate guide. The alternative is to make use
+of the standard linux command 'nice' which is used to alter the priority of
+running processes.
 
 Two other columns of information which top will give are 'PR' (priority) and
 'NI' (nice). Note that the two are essentially the same with PR=NI+20. Also
@@ -1265,7 +1265,7 @@ a lower priority then all subsequent commands run in that shell will inherit
 that lower priority. Similarly, by running `nice rstudio &` the accompanying
 'rsession' process will also be run with lower priority.
 
-So that all users on slade get a fair share of resources, any commands or
+So that all users on the HPC get a fair share of resources, any commands or
 processes which are run which will take more than a few minutes of intense
 processing to complete should be run with a nice value of 10 (the default). If
 any users are seen to persistently flout this requirement then this limit may
