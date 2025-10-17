@@ -1,0 +1,1082 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Exeter Omics Servers">
+      
+      
+        <meta name="author" content="Sam Fletcher">
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../Software_Miniconda/">
+      
+      
+      <link rel="icon" href="../logo.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.37">
+    
+    
+      
+        <title>File transfer - Exeter Omics Server Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-transfer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Exeter Omics Server Documentation" class="md-header__button md-logo" aria-label="Exeter Omics Server Documentation" data-md-component="logo">
+      
+  <img src="../logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exeter Omics Server Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File transfer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Exeter-Omics-Servers/omics-server-documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Exeter Omics Server Documentation" class="md-nav__button md-logo" aria-label="Exeter Omics Server Documentation" data-md-component="logo">
+      
+  <img src="../logo.jpg" alt="logo">
+
+    </a>
+    Exeter Omics Server Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Exeter-Omics-Servers/omics-server-documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to the Exeter Omics Server wiki
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    File transfer
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    File transfer
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-scp-sftp-and-rsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are SCP, SFTP and rsync?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-files-to-or-from-linux-or-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copying Files To or From Linux or MacOS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Copying Files To or From Linux or MacOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-line-scp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command line scp
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-line-rsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command line rsync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-directories-using-rsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing Directories using rsync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-line-sftp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command line sftp
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-files-to-or-from-a-windows-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copying Files To or From a Windows Desktop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Copying Files To or From a Windows Desktop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#winscp" class="md-nav__link">
+    <span class="md-ellipsis">
+      WinSCP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobaxterm" class="md-nav__link">
+    <span class="md-ellipsis">
+      MobaXterm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filezilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filezilla
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#globus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Globus
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Software_Miniconda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Software_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Module System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell Scripting Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intermediate_scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intermediate Scripting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-scp-sftp-and-rsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are SCP, SFTP and rsync?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-files-to-or-from-linux-or-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copying Files To or From Linux or MacOS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Copying Files To or From Linux or MacOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-line-scp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command line scp
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-line-rsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command line rsync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-directories-using-rsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing Directories using rsync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-line-sftp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command line sftp
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-files-to-or-from-a-windows-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copying Files To or From a Windows Desktop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Copying Files To or From a Windows Desktop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#winscp" class="md-nav__link">
+    <span class="md-ellipsis">
+      WinSCP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobaxterm" class="md-nav__link">
+    <span class="md-ellipsis">
+      MobaXterm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filezilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filezilla
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#globus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Globus
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="file-transfer">File transfer</h1>
+<h2 id="what-are-scp-sftp-and-rsync">What are SCP, SFTP and rsync?</h2>
+<p>There are, broadly, three main methods for transferring files between file
+systems on different computers. These are SCP, SFTP and rsync. Although SCP and
+SFTP refer to the underlying protocol (technical rules) used for performing
+transfers, they are also command line programs which can be used to carry out
+the transfers. An in depth discussion of the technical differences between the
+protocols is well beyond the scope of this document. Instead, this document
+will concentrate on basic usage of the three programs, and a few other programs
+which use the protocols.</p>
+<p>In terms of usage, SCP, SFTP and are usually used for slightly different
+scenarios. Several technical differences are worth noting here: SFTP and rsync
+can resume an interupted transfer whereas SCP cannot; SFTP can perform
+operations such as directory listings; and rsync can compare hierarchies of
+files. This second difference means that SFTP is usually used for interactive
+use with SCP and rsync restricted to command line use when the files to be
+transferred are known. Also, SCP tends to be used for transfering smaller
+numbers of files, with rsync used for larger numbers.</p>
+<h2 id="copying-files-to-or-from-linux-or-macos">Copying Files To or From Linux or MacOS</h2>
+<p>Direct transfer of files between linux or MacOS systems can be achieved using
+command line <code>scp</code> or <code>rsync</code>. Note that use of these commands for copying to a
+Windows system from a linux-like terminal is possible, but unreliable. Although
+the contents of the files should copy okay, if an attempt is made to keep
+permissions then it is likely that the files may become unreadable and file
+permissions will need to be reapplied recursively from a parent directory. For
+specific Windows alternatives, see 
+<a href="#copying-files-to-or-from-a-windows-desktop">this section</a>.</p>
+<p><code>scp</code> is very similar to the standard copy command, <code>cp</code>, with a few exceptions
+to enable remote copying. rsync is similar in principle, however, the options
+differ. Graphical interfaces, such as Filezilla, are also available
+(<a href="#filezilla">see below</a>).</p>
+<h3 id="command-line-scp">Command line scp</h3>
+<p>The <code>scp</code> command is similar to the cp command for a standard copy. The main
+exception is that, as well as indicating the file, or files, to be copied,
+details must be given for the remote system. This is achieved by preceding the
+remote file or directory with the remote user and system names. Although the
+copy can be made in either direction, if more than one file is being copied it
+is usually easier to copy files from the local system to the remote system,
+rather than vice versa. Note that if the destination file already exists it
+will be over-written. Also, a recursive copy will follow any symbolic links
+found in the source so some care is needed if symbolic links may be present.
+The following examples illustrate the general syntax. For further details see
+the <code>man</code> pages.</p>
+<div class="highlight"><pre><span></span><code>$ pwd
+
+/home/users/abc123/Data1
+
+$ scp -p *.dat abc123@research2:Data2/
+
+abc123@research2&#39;s password:
+
+[status of each file transfer]
+</code></pre></div>
+<p>In the above example, files are copied from the local system to the remote
+system. Here, all the <code>.dat</code> files from the local current directory (<code>Data1</code>)
+are copied into the <code>Data2</code> directory in the home directory of user <code>abc123</code> on
+<code>research2</code>. There is no slash after the colon in the remote path so the path
+is relative to the user's home directory. The <code>-p</code> flag tells <code>scp</code> to keep the
+same permissions and date-time stamps for the files, if possible.</p>
+<div class="highlight"><pre><span></span><code>$ scp -pr Out abc123@research2:Data2/
+
+abc123@research2&#39;s password:
+
+[status of each file transfer]
+</code></pre></div>
+<p>This second example recursively copies the directory Out, and all its contents,
+from the local current directory to the user's Data2 directory on research2.
+In each case, the command prompts the user for the password of the remote user
+account.</p>
+<p>Note that it is important to include the trailing slash <code>/</code> on directories if
+the copy is to place files within the directory. Without the slash, the
+directory could be silently overwritten with each of the files being copied.
+For <code>scp</code>, trailing slashes are important for both the source and the
+destination.</p>
+<div class="highlight"><pre><span></span><code>$ scp -pr Out abc123@research2:Data2/Out2
+
+abc123@research2&#39;s password:
+
+[status of each file transfer]
+</code></pre></div>
+<p>Here the directory <code>Out</code> is copied and renamed to <code>Out2</code> on the destination
+server. If a slash was put at the end of <code>Out2</code> then the directory <code>Out</code> would
+be copied below <code>Out2</code> giving <code>Out2</code>/<code>Out</code>.</p>
+<p>If transferring files through VPN proves to be a problem then it is possible to
+'tunnel' through another server, with VPN turned off. If the version of <code>scp</code>
+used in the local shell allows then this can be achieved as follows:</p>
+<div class="highlight"><pre><span></span><code>$ scp -o ProxyJump=abc123@hashbang.ex.ac.uk abc123@remotehost.ex.ac.uk:file1 .
+
+abc123@hashbang.ex.ac.uk&#39;s password:
+
+abc123@remotehost.ex.ac.uk&#39;s password:
+</code></pre></div>
+<p>This will copy <code>file1</code> from the <code>abc123</code> home directory on remotehost to the
+current directory on the user's local machine, via the machine called
+'hashbang'. The usual options for permissions and recursion can still be used,
+as can the shorthand <code>-J</code>. Windows users should note that the version of <code>scp</code>
+which comes with MobaXterm (<a href="#mobaxterm">described here</a>) does not recognise
+the 'ProxyJump' option. However, the 
+<a href="https://gitforwindows.org/">Git for Windows</a> program comes with a 'Git BASH'
+bash emulator which does allow this option (but not the <code>-J</code> shorthand). MacOS
+users should find that this option works from the normal terminal as long as
+the underlying <code>ssh</code> command does.</p>
+<h3 id="command-line-rsync">Command line rsync</h3>
+<p>The <code>rsync</code> command is similar to the <code>scp</code> command. The main exception is that
+it compares the files at both the source and destination and only copies files
+which need to be copied. Note that the command has over 100 different options
+to control its behaviour so a full description of its use is well beyond the
+scope of this guide. However, for most copies, use the <code>-a</code> flag to apply a
+collection of useful options. This includes <code>-r</code> for recursion and the <code>-l</code>
+option to copy symbolic links as symbolic links, instead of following them as
+<code>scp</code> does. The following examples illustrate the general syntax:</p>
+<div class="highlight"><pre><span></span><code>$ pwd
+
+/home/users/abc123/Data1
+
+$ rsync -aP *.dat abc123@research2:Data2/
+
+abc123@research2&#39;s password:
+
+[status of each file transfer]
+</code></pre></div>
+<p>This is much the same as the first <code>scp</code> example, above. However, if the copy is
+interupted, the <code>-P</code> flag  will allow the rsync command to be repeated with the
+transfer continuing from where it left off.</p>
+<div class="highlight"><pre><span></span><code>$ rsync -aP Out/ abc123@research2:Data2/Out/
+
+abc123@research2&#39;s password:
+
+[status of each file transfer]
+</code></pre></div>
+<p>The same flags are used for the recursive copy. As for <code>scp</code> it is very
+important to include trailing slashes on a directory where they are needed.
+However, usage is slightly different from <code>scp</code>: for <code>rsync</code>, trailing slashes
+are only important for the source; they do not matter for the destination. For
+the source: no slash means to copy the directory and its contents; with a slash
+means to only copy the contents of the directory. The destination is always a
+directory and everything is copied into that directory.</p>
+<p>If the files to be transferred are large and can be highly compressed then it
+is worth also including the <code>-z</code> flag. This will compress files before
+transfer then uncompress them at the destination. For large, binary files,
+however, the overhead of compressing and uncompressing the files may mean that
+there is little benefit in using the <code>-z</code> flag.</p>
+<p>If required and if the local <code>ssh</code> supports it, tunnelling can be achieved by
+explicitly giving the ssh command to the <code>-e</code> option:</p>
+<div class="highlight"><pre><span></span><code>$ rsync -aP -e &#39;ssh -J abc123@hashbang.ex.ac.uk&#39;
+abc123@remotehost.ex.ac.uk:file1 .
+
+abc123@hashbang.ex.ac.uk&#39;s password:
+
+abc123@remotehost.ex.ac.uk &#39;s password:
+
+[status of each file transfer]
+</code></pre></div>
+<p>In addition to copying files, <code>rsync</code> can also delete files at the destination
+which are not present at the source. However, this only makes sense when
+mirroring directories, and should be used with extreme caution.</p>
+<p>For further details on how to use <code>rsync</code>, see the <code>man</code> pages or various
+online resources.</p>
+<h3 id="comparing-directories-using-rsync">Comparing Directories using rsync</h3>
+<p>One valuable use of <code>rsync</code> is to compare directory structures. For example,
+once a copy has been made, <code>rsync</code> can be used to compare the source and
+destination directories and files at a later date and to simply report any
+differences rather than to attempt any transfer of files. To do this it is
+important to use the <code>-n</code> flag which specifies a 'dry run', and <code>-v</code> so that
+the differences are actually reported:</p>
+<div class="highlight"><pre><span></span><code>$ rsync -avun Out/ abc123@research2:Data2/Out/
+
+abc123@research2&#39;s password:
+
+sending incremental file list
+
+analysis.log
+
+sent 3537 bytes received 30 bytes 7134.00 bytes/sec
+
+total size is 2555536960285 speedup is 716438732.91 (DRY RUN)
+</code></pre></div>
+<p>If there are files missing at the destination then they will be listed before
+the summary lines. To see any files which are new at the destination the
+<code>--delete</code> option should be specified; the files will be listed, one per line,
+with the word 'Deleting' before each one. Here the file <code>analysis.log</code> is
+listed indicating that that file would be copied by a subsequent <code>rsync</code>. If
+the file then failed to copy, this could be due to the user not having
+permission to read the file.</p>
+<p>When comparing files, <code>rsync</code> uses a "quick check" algorithm, by default, which
+essentially looks at changes in size or last modified time. This will not pick
+up mutations in the data due to issues with a previous copy or transfer so the
+<code>-c</code> flag can be used to ask for a checksum verification for any files which
+are the same size at both the source and the destination. The checksums will be
+compared instead of the last modified times. However, when using <code>rsync</code> to
+copy files, a checksum comparison is always used to verify that each file has
+been transfered correctly, even without the <code>-c</code> flag, so this should never be
+explicitly required when using <code>rsync</code> to copy files. Further, adding <code>-c</code> to a
+<code>-n</code> dry run comparison should not be necessary if <code>rsync</code> was used for the
+previous copy. It should also be noted that adding an extra checksum
+verification can also slow down the <code>rsync</code> process significantly.</p>
+<p>For comparisons under different circumstances, for example, if files at the
+destination may have changed independently of any copy, other <code>rsync</code> flags
+will be required. The user is again directed to see the man pages or online
+resources for further details of the options available and when they might be
+used.</p>
+<h3 id="command-line-sftp">Command line sftp</h3>
+<p>The secure sftp command is used in a similar way to the non-secure ftp command.
+Although it can be used to retrieve files automatically from a remote system,
+it is usually used interactively. For interactive use, the graphical program
+Filezilla, described below, should be considered if X11 forwarding is not a
+problem. It provides a good alternative which can also save session
+information. Note that the remote system must have a suitable server running,
+and access controls in place, for this to be available. To connect:</p>
+<div class="highlight"><pre><span></span><code>$ sftp abc123@research2
+</code></pre></div>
+<p>Whereas with <code>scp</code> and <code>rsync</code> the remote path is relative to the user's home
+directory, ftp and <code>sftp</code> may place the user in an alternative data area set
+aside for file transfers.</p>
+<p>As for <code>scp</code>, described above, the <code>sftp</code> command should accept the <code>-o</code>
+'ProxyJump' option and the <code>-J</code> shortcut to allow proxy tunnelling through
+another server, as long as the underlying ssh command also accepts these.</p>
+<p>Once authenticated, you can list available commands using either <code>help</code> or
+<code>?</code>. Here are some of the useful commands (much of the help text has been
+shortened):</p>
+<div class="highlight"><pre><span></span><code>sftp&gt; help
+
+Available commands:
+
+bye Quit sftp
+
+cd path Change remote directory to &#39;path&#39;
+
+...
+
+exit Quit sftp
+
+get [-Pr] remote [local] Download file
+
+help Display this help text
+
+lcd path Change local directory to &#39;path&#39;
+
+lls [flags] [path] Display a local directory listing
+
+lpwd Print local working directory
+
+ls [-1aflnrSt] [path] Display a remote directory listing
+
+...
+
+put [-Pr] local [remote] Upload file
+
+pwd Print remote working directory
+
+quit Quit sftp
+
+...
+
+? Same as help
+</code></pre></div>
+<p>Two of the previous <code>scp</code> examples could then be achieved as follows:</p>
+<div class="highlight"><pre><span></span><code>sftp&gt; lpwd
+
+Local working directory: /home/users/abc123/Data1
+
+sftp&gt; cd Data2
+
+sftp&gt; pwd
+
+Remote working directory: /res2/home/users/abc123/Data2
+
+sftp&gt; put --P *.dat
+
+sftp&gt; put --Pr Out
+
+sftp&gt; quit
+</code></pre></div>
+<p>Within <code>sftp</code>, you can also use <code>df -h</code> to check that there is enough space
+available on the remote file system before transferring files. Although there
+are 'local' versions of many commands (for example, 'pwd' and 'lpwd') to
+get a local <code>df</code> you need to use the shell escape to call the local system's
+df: <code>!df -h</code>.</p>
+<h2 id="copying-files-to-or-from-a-windows-desktop">Copying Files To or From a Windows Desktop</h2>
+<p>There are several options for transferring files to or from a Windows Desktop.
+A few of these are outlined below. The choice of which to use may depend on
+personal preference, how many files need to be transferred and how much control
+is required over the transfer process.</p>
+<h3 id="winscp">WinSCP</h3>
+<p>WinSCP is an open source free SFTP client, SCP client, FTPS client and FTP
+client for Windows. Its main function is file transfer between a local and a
+remote computer. Note that, as an alternative to a traditionally installed
+version which requires administrator privileges for installation, WinSCP is
+available as a portable version. WinSCP can be downloaded
+<a href="https://winscp.net/eng/downloads.php">here</a>.</p>
+<p>When you run WinSCP a login window will appear for you to fill in the remote
+hostname and your remote username. A 'Save' button allows you to save the
+session details for future use. Clicking the 'Login' button will prompt for
+the remote user's password. Once successfully authenticated a file manager
+window will be displayed. This drag and drop interface is a similar to Windows
+file manager and it's use should be intuitive.</p>
+<h3 id="mobaxterm">MobaXterm</h3>
+<p>If MobaXterm is already being used for terminal or shell access then its
+inbuilt file manager can be used for simple drag and drop file transfers. This
+will be available by default. Below the file manager panel is a tick box. If
+this is ticked then the current directory within the file manager should track
+and mirror the current directory within the shell. Note that any files which
+are dragged and droppped will be given the current date and time, not those of
+the original files. Alternatively, a new session can be setup using SFTP as the
+session type. This provides a more substantial remote file manager, instead of
+the shell login plus a local file manager. These sessions can also tunnel
+through a proxy, as described in the <code>scp</code> example given above.</p>
+<p>It is important to note the warning given in the section on Copying Files to
+and from Linux or MacOS, above. MobaXterm can open a local CYGWIN shell
+terminal and the <code>scp</code> and <code>rsync</code> commands are available in this terminal.
+However, the file permissions which are set on copied files may not be reliable
+due to differences between how linux and Windows set these permissions.</p>
+<h3 id="filezilla">Filezilla</h3>
+<p>Filezilla is a free graphical file manager which supports various protocols
+including SFTP. It is available for Linux, MacOS and Windows platforms
+<a href="https://filezilla-project.org/download.php?show_all=1">here</a>.
+A portable version of Filezilla for Windows, which does not require
+administrator privileges for installation, is available 
+<a href="https://portableapps.com/apps/internet/filezilla_portable">here</a>.</p>
+<p>When running Filezilla, a quick remote connection can be established by
+entering the remote user and host details into the text boxes provided on the
+main window (use port 22 for SFTP). Alternatively, sessions can be setup and
+saved for future use through use of the Site Manager, which is accessed from
+the 'File' menu. Use of the Site Manager also allows default local and remote
+directories to be set and saved.</p>
+<h3 id="globus">Globus</h3>
+<p>To quote its webpage, Globus is a non-profit service for secure, reliable
+research data management. More specifically, it has been designed for
+transferring large (or small) quantities of data between different machines
+based at the same, or different institutions.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025, Sam Fletcher
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      
+    
+  </body>
+</html>

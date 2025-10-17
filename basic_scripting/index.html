@@ -1,0 +1,1343 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Exeter Omics Servers">
+      
+      
+        <meta name="author" content="Sam Fletcher">
+      
+      
+      
+        <link rel="prev" href="../basic_linux/">
+      
+      
+        <link rel="next" href="../intermediate_scripting/">
+      
+      
+      <link rel="icon" href="../logo.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.37">
+    
+    
+      
+        <title>Shell Scripting Basics - Exeter Omics Server Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#shell-scripting-basics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Exeter Omics Server Documentation" class="md-header__button md-logo" aria-label="Exeter Omics Server Documentation" data-md-component="logo">
+      
+  <img src="../logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exeter Omics Server Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Shell Scripting Basics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Exeter-Omics-Servers/omics-server-documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Exeter Omics Server Documentation" class="md-nav__button md-logo" aria-label="Exeter Omics Server Documentation" data-md-component="logo">
+      
+  <img src="../logo.jpg" alt="logo">
+
+    </a>
+    Exeter Omics Server Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Exeter-Omics-Servers/omics-server-documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to the Exeter Omics Server wiki
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_Transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File transfer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Software_Miniconda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Software_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Module System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Shell Scripting Basics
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Shell Scripting Basics
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-shebang" class="md-nav__link">
+    <span class="md-ellipsis">
+      The shebang
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The shebang">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#providing-exact-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Providing exact path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passing-responsibility-over-to-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passing responsibility over to PATH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verdict
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-possible-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other possible solution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      More bash
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-and-local-shell-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment and Local Shell Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manipulating-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manipulating Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arithmetic-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arithmetic Expressions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-and-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tests and Conditions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Flow
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intermediate_scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intermediate Scripting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-shebang" class="md-nav__link">
+    <span class="md-ellipsis">
+      The shebang
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The shebang">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#providing-exact-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Providing exact path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passing-responsibility-over-to-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passing responsibility over to PATH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verdict
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-possible-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other possible solution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      More bash
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-and-local-shell-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment and Local Shell Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manipulating-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manipulating Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arithmetic-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arithmetic Expressions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-and-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tests and Conditions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Flow
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="shell-scripting-basics">Shell Scripting Basics</h1>
+<p>Although the bulk of this guide concentrates on using the <code>bash</code> script, it is
+convenient to start with a brief introduction to scripts in general.</p>
+<p>Example scripts are given throughout the various sections below, and in the
+separate guide on using commands such as <code>awk</code>. In the <code>awk</code> example, the
+script followed the syntax of the awk language. Other scripts are given using
+bash to highlight features of bash. Essentially, a script is simply a
+collection of commands, using a designated language, which can be used to carry
+out a prescribed task. Usually, scripting languages are taken as being those
+where the script is interpreted at run time. This is distinct from programming
+languages such as C where a program is first compiled into run time code, then
+the compiled version is run. However, this distinction is not perfect as some
+languages can be used in both ways.</p>
+<p>In general there are two ways of invoking a script, though not all languages
+allow both methods. For the first method, as per the <code>awk</code> example, the file
+name is given to the command which should be used to run the script.
+Alternatively, the script is set as executable (see Permissions in the Basic
+Linux guide) and a setting in the file tells the parent shell which command to
+use. This setting uses the so-called 'shebang' (<code>#!</code>) though exactly what
+should come after it can vary, as described below.</p>
+<p>It is not possible to cover all of the different scripting languages here.
+Instead a small selection will be highlighted with a brief outline of their
+capabilities. Others will also be covered within the section on bash.</p>
+<h2 id="the-shebang">The shebang</h2>
+<p>The shebang (<code>#!</code>) is used on the first line of a script to tell the shell
+which command (interpreter) to use if the script is run as an executable. If
+the script is given as an argument to the command to be used then the shebang
+is ignored, and can be omitted entirely.</p>
+<p>If the shebang is given in a script then either the full path to the required
+command is given, or the path to 'env' is given followed by the command name.
+These two options both have their pros and cons, though the pros for one tend
+to be cons for the other, and vice versa! The following examples refer to
+<code>bash</code>, however, the same principle applies to any command used for running
+scripts.</p>
+<h3 id="providing-exact-path">Providing exact path</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash </span>
+<span class="c1"># rest of script follows</span>
+</code></pre></div>
+<p>Pros: </p>
+<ul>
+<li>Only the specified executable will be used to run the script.<ul>
+<li>This ensures portability by reducing the risk of the script breaking due
+to changes in the version being used.</li>
+</ul>
+</li>
+</ul>
+<p>Cons: </p>
+<ul>
+<li>A different version of the interpreter can only be used by giving it
+explicitly on the command line.</li>
+</ul>
+<h3 id="passing-responsibility-over-to-path">Passing responsibility over to PATH</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># rest of script follows</span>
+</code></pre></div>
+<p>Pros: </p>
+<ul>
+<li>The command used to run the script will be obtained from the user's
+search path. <ul>
+<li>This enables the user to choose which version is used simply by changing
+the search path, or by making an alternative version available earlier in
+the search path.</li>
+</ul>
+</li>
+</ul>
+<p>Cons: </p>
+<ul>
+<li>A different version of the command may not be compatible with the script.</li>
+<li>The script author cannot enforce the use of a specific version without adding
+code to the script as a safeguard.</li>
+</ul>
+<h3 id="verdict">Verdict</h3>
+<p>Both options also have the same restriction that the specific path must exist
+on the system the script is to be run on so may not be entirely portable.</p>
+<p>The choice of which option to use is probably not critical in most situations.
+In practice, the choice may be determined by practicalities of the software
+being used. For example, the 'Rscript' command may only be available if the
+relevent R software module has been loaded. The path to the module may change
+with time, and is probably quite long. It is much easier to specify the first
+of the following two options:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env Rscript</span>
+<span class="c1">#!/software/easybuild/software/R/3.6.3-foss-2020a/bin/Rscript</span>
+</code></pre></div>
+<p>However, if the script is known to fail for R version 4 due to an updated
+package then it would be up to the script author to implement a safeguard for
+this, or to ensure that anyone running the script is fully aware of this
+limitation. bash or sh</p>
+<p>The traditional 'sh' shell is a core, basic shell. Most other shell commands
+(for example, 'bash', 'csh', 'tcsh', 'zsh') are more functional variations of
+'sh'. Which of these are available on any particular system, and which is set
+as your default shell, is determined by the OS and the system administrator. If
+a script only uses core sh functionality then it could probably be invoked by
+any available (compatible) shell. If shell specific features are used, however,
+then the correct shell must be used. On some systems, however, the traditional
+sh may not be available.</p>
+<h3 id="other-possible-solution">Other possible solution</h3>
+<p>It should be noted that a shebang is only required when running scripts like
+an executable (<em>i.e.</em> <code>./script.sh</code>), if the software requirements are well
+defined, one can always just run the script with said software 
+(<code>bash ./script.sh</code>).</p>
+<h2 id="more-bash">More bash</h2>
+<p>Much of the functionality of the bash shell is taken for granted. As well as
+the standard commands such as 'ls' and 'cd' covered in the Basic Linux guide,
+bash has a rich selection of other features, some of which are outlined below.
+However, a full understanding of some of the more intricate behaviour of bash
+is well beyond the scope of this guide. The "Advanced Bash-Scripting Guide" on
+"The Linux Documentation Project" web site, is a single web page. However, if
+printed to pdf it stretches to over 700 pages! Although it was last updated in
+2014, it covers everything, or almost everything, you may ever need to know
+about bash. It also has plenty of examples:
+https://tldp.org/LDP/abs/html/abs-guide.html</p>
+<h2 id="variables">Variables</h2>
+<p>Shell variables are intrinsic to most of what bash does. They essentially store
+information or settings so that bash, or other commands, can access those
+settings when needed. For example, when a command is issued within a bash shell
+bash checks the <code>PATH</code> variable to see which directories to look in for that
+command. If the shell being used has X forwarding turned on then there should
+be a variable called <code>DISPLAY</code> which tells any command which needs to know
+where to send any graphical output.</p>
+<p>The following examples include simple bash scripts. Details of the shebang on
+the first line in a bash script are given above. It is also assumed that
+execute permission has been set to enable them to be run.</p>
+<h3 id="environment-and-local-shell-variables">Environment and Local Shell Variables</h3>
+<p>Most system environment variables have names which are fully capitalised, for
+example the <code>PATH</code> variable used for the bash search path. When using your own
+variables within a script, or the bash shell, it is prudent to always use lower
+case for the variable names to avoid inadvertently changing any environment
+variables.</p>
+<p>One set of variables available to bash scripts are the special variables <code>$*</code>,
+<code>$@</code>, <code>$#</code> and positional variables <code>$0</code>, <code>$1</code>, <code>$2</code>, <code>$3</code>, and so on. The
+positional variables correspond to the script name plus the arguments passed to
+the script, with <code>$0</code> being the script name, <code>$1</code> the first argument, and so
+on.</p>
+<p>Considering the actual arguments, that is, excluding the script name, <code>$*</code> and
+<code>$@</code> contain all of the arguments. However, <code>$*</code> contains all of the arguments
+as a single string whereas <code>$@</code> contains a list of separate strings. The other
+special variable, <code>$#</code>, contains the number of arguments. The 'shift' command
+will remove the first argument <code>$1</code>, at which point <code>$2</code> will become the new
+$1. These are demonstrated by the simple bash script 'show_args.sh'</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="c1"># show_args.sh</span>
+<span class="nb">echo</span><span class="w"> </span>Num:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="m">1</span>:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="m">2</span>:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>All:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+
+<span class="nb">shift</span>
+
+<span class="nb">echo</span><span class="w"> </span>Num:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="m">1</span>:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="m">2</span>:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>All:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>The output could look something like this:</p>
+<div class="highlight"><pre><span></span><code>$ ./show_args Hello there
+Num: 2
+1: Hello
+2: there
+All: Hello there
+
+Num: 1
+1: there
+2:
+All: there
+</code></pre></div>
+<p>Note that to run a file in the current directory as a script the name must be
+given as an absolute path or a relative path (hence the preceeding <code>./</code>). If
+just the filename is given it will be looked for in the search path (given by
+the <code>PATH</code> environment variable) and will probably not be found, unless the
+current directory is on the search path. Worse still, the name may be found
+elsewhere and the wrong program or script may be run.</p>
+<p>A few other useful ways of using these variables are shown below in the section
+on Manipulating Variables.</p>
+<h3 id="setting-variables">Setting Variables</h3>
+<p>Variables can be set within a shell simply by running <code>name=value</code> (imporantly,
+with <em>no spaces</em> around the '='). However, there are a few extra details,
+including use of the <code>export</code> command, which affects where that variable can
+then be used. The following examples serve to demonstrate the most useful or
+important aspects. Consider the bash script 'foobar' which simply echoes the
+values of the two variables 'foo' and 'bar':</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="c1"># foobar.sh</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;foo:</span><span class="si">${</span><span class="nv">foo</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;bar:</span><span class="si">${</span><span class="nv">bar</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ source foobar.sh
+foo:
+bar:
+</code></pre></div>
+<p>The bash <code>source</code> command runs the contents of the file in the current shell
+(as if you copied and pasted these commands into the shell yourself). Nothing
+is printed after either "foo:" or "bar:" because the two variables have not yet
+been set.</p>
+<p>In the following, the two variables are set using slightly different methods.
+First foo is set by simply assigning the value to the variable. Then bar is set
+in a similar manner, but as part of the export command. Now source shows that
+both variables have indeed been set:</p>
+<div class="highlight"><pre><span></span><code>$ foo=&quot;Hello&quot;
+$ export bar=&quot;Goodbye&quot;
+$
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ source foobar
+foo:Hello
+bar:Goodbye
+</code></pre></div>
+<p>However, when the script is run as a subshell, only the value of bar is
+printed, though using source again shows that both variables are still set in
+the current shell:</p>
+<div class="highlight"><pre><span></span><code>$ ./foobar
+foo:
+bar:Goodbye
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ source foobar
+foo:Hello
+bar:Goodbye
+</code></pre></div>
+<p>Any variables such as 'bar' which are set with the <code>export</code> command are passed
+on to all subshells. In contrast, without the <code>export</code> command, the value of
+'foo' is not passed to the script when run as a subshell. However, a variable
+can also be passed explicitly to a command, and without changing the setting in
+the current shell:</p>
+<div class="highlight"><pre><span></span><code>$ foo=&quot;Hi there&quot; ./foobar
+foo:Hi there
+bar:Goodbye
+$ source foobar
+foo:Hello
+bar:Goodbye
+</code></pre></div>
+<p>In the first example, the script receives the value of "Hi there" for foo. The
+current shell, however, still has the original value of "Hello" set, confirmed
+again by using source to run the script. Another way of calling bash without
+using a file as a script is to pass it commands using the '-c' argument,
+separating individual bash commands with a semicolon (';'). Be warned, though,
+that this is starting to get more complicated:</p>
+<div class="highlight"><pre><span></span><code>$ foo=&quot;Hi there&quot; bash -c &#39;echo foo:$foo; echo bar:$bar&#39;
+foo:Hi there
+bar:Goodbye
+$
+$ foo=&quot;Hi there&quot; bash -c &quot;echo foo:$foo; echo bar:$bar&quot;
+foo:Hello
+bar:Goodbye
+</code></pre></div>
+<p>Note the different outputs obtained when different quotes are used. When single
+quotes are used around the argument to bash the value of foo passed on the
+command line is used. However, when double quotes are used the value of foo
+which is echoed is that from the shell, not the value passed on the command
+line. What is happening in the second case is that the string within the double
+quotes has all variables replaced by the current bash shell before the string
+is passed to the call to bash. This is therefore equivalent to:</p>
+<div class="highlight"><pre><span></span><code>$ foo=&quot;Hi there&quot; bash -c &quot;echo foo:Hello; echo bar:Goodbye&quot;
+foo:Hello
+bar:Goodbye
+</code></pre></div>
+<p>The situation becomes much more complicated if a string on the command line
+needs to include quotes or other special characters. then the backslash
+character can be used to 'escape' the following character:</p>
+<div class="highlight"><pre><span></span><code>$ foo=&quot;It&#39;s \&quot;Summer\&quot;!&quot; bash -c &#39;echo foo:&quot;$foo&quot;; echo bar:&quot;$bar&quot;&#39;
+foo:It&#39;s &quot;Summer&quot;!
+bar:Goodbye
+</code></pre></div>
+<p>Often a bit of trial and error is required to get the right combination of
+quotes and escapes. In the example above, not only do the double quotes in the
+string passed in for foo need to be escaped, but an extra set of double quotes
+are needed around the two variables within the string passed to bash. Without
+these extra quotes, bash tries to interpret the single quote and the
+exclamation mark within the foo string, and gives an error. If there is an
+unbalanced quote (as above) then the prompt changes to '&gt; ' (or whatever the
+environment variable <code>PS2</code> is set to) and bash will wait for you to finish
+closing the string which has been passed to it:</p>
+<div class="highlight"><pre><span></span><code>$ foo=&#39;It\&#39;s &quot;Summer&quot;! &#39; bash -c &#39;echo foo:&quot;$foo&quot;; echo bar:&quot;$bar&quot;&#39;
+&gt; &#39;
+bash: Summer!: command not found...
+bar:Goodbye
+</code></pre></div>
+<p>Pressing Ctrl-C to terminate the command is often the safest option if this
+happens as the command is obviously not doing what was intended. Ctrl-D could
+be used instead of the close quote to end the input and exit the subshell (by
+sending the 'end of file'/EOF marker), but bash will still try to interpret the
+string passed to it. Therefore, it is always better to test any complicated
+combination of quoted strings and escaped characters in a controlled way first,
+rather than using something untested in a command where getting it wrong could
+cause damage to files or data.</p>
+<p>For example, the foobar script, above, does not include quotes around '$foo'
+and '$bar' when echoing them. If the echo statements were simply 'echo $foo'
+and 'echo $bar' and either foo or bar contained something like "rm *" then this
+could remove all files from the current directory, no questions asked! More
+realistically, if the statement was 'rm $file_name' and the file_name contained
+spaces, for example, then this would result in the wrong files being deleted.</p>
+<h3 id="manipulating-variables">Manipulating Variables</h3>
+<p>Variables are useful for a lot more than just being echoed to the output. Being
+echoed is a simple example of passing a variable to another command as an
+argument. Any command can take a variable as an argument. One of their
+strengths, however, is the ability to manipulate their content. The following
+examples are not an attempt to fully detail the use of bash variables. Instead,
+they aim to give a few examples of how variables can be used in order to
+highlight their power when used correctly. The interested user with an
+application in mind can then find out more.</p>
+<p>Just as the special variable $# gave the number of arguments to the bash
+script, the '#' qualifier can be used to report the length of a variable
+string. Substrings can also be extracted by giving the first character position
+(starting from 0) and number of characters required, separated by colons (':').
+If the number is not given then the rest of the string is returned. The
+'mangle_args' script shows some of these string manipulations:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="c1"># mangle_args.sh</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;1: </span><span class="nv">$1</span><span class="s2">\nLen1: </span><span class="si">${#</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>Where:<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">2</span><span class="p">:</span><span class="nv">1</span><span class="si">}</span><span class="s2">, </span><span class="nv">$2</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span>Who:<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span><span class="s2">, </span><span class="si">${</span><span class="nv">2</span><span class="p">:</span><span class="nv">1</span><span class="p">:</span><span class="nv">3</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;, </span><span class="si">${</span><span class="nv">2</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">3</span><span class="si">}</span><span class="s2">y&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ ./mangle_args.sh Hello there
+1: Hello
+Len1: 5
+Where: here, there
+Who: He, her, they
+</code></pre></div>
+<p>Two options have also been used here on echo. The first, '-e', tells echo to
+treat '\n' as a newline (rather than the literal '\n'). In contrast, the second
+option, '-n', is used to suppress the newline at the end of what echo outputs.
+The next output from the script then continues on the same line. Note, however,
+that if there is no following script output then the next bash prompt will
+continue on the same line instead.</p>
+<p>The special variable <code>$@</code> is an example of an array variable. Arrays can be
+defined in a number of ways. One way is by splitting a string on a specific
+character. The <code>PATH</code> variable, for example, contains a list of directory paths
+separated by colons (':'). Although the <code>PATH</code> is a single string it can be
+split into an array and then just one element assigned to another variable:</p>
+<div class="highlight"><pre><span></span><code>$ echo $PATH
+/home/abc123/.local/bin:/home/abc123/bin:/usr/local/bin:/usr/bin:/usr/local
+/sbin:/usr/sbin
+$ bash -c &#39;IFS=&quot;:&quot;; a=( $PATH ); b=&quot;${a[3]}&quot;; echo &quot;$b&quot;&#39;
+/usr/local/bin
+</code></pre></div>
+<p>Here <code>IFS</code> is the 'internal field separator'. By default this is a space, tab
+or newline: ' \t\n'. This is first set to a colon (':') within the script to
+make sure that the main shell value is not changed. The standard search <code>PATH</code>
+variable is then assigned to new variable 'a' using parentheses '( )' to force
+the result to be an array. Since the field separator is now a colon, the <code>PATH</code>
+string is split on the colons. The variable 'b' is then set to the third
+element of a, and finally b is echoed. (This could just as easily be achieved
+using 'awk', described below.) Note that when assigning the array, spaces are
+required between the contents and the parenthesis. This is the opposite of the
+requirement for no spaces around the equals sign '='. Arrays are most useful
+within scripts so that a set of commands can be run using each value in a list
+(see the section on <a href="#control-flow">control flow</a>, below). Whereas the example
+above used a variable within the parentheses, any command can be used. In fact,
+some commands are rarely used outside of this scenario. For example, the <code>seq</code>
+command will generate a list of numbers. The following snippet from a script
+will generate a set of 8 numbered log files with a summary analysis provided
+from running the R script (see section on R, below):</p>
+<div class="highlight"><pre><span></span><code>$ for d in $( seq 1 8 ); do
+&gt;     file_name=&quot;Day${d}out.log&quot;
+&gt;     echo &quot;Day $d&#39;s results&quot; &gt; $file_name
+&gt;     Rscript Do_Day.R -day $d &gt;&gt; $file_name
+&gt; done
+
+$ ls Day?out.log
+Day1out.log Day3out.log Day5out.log Day7out.log
+Day2out.log Day4out.log Day6out.log Day8out.log
+</code></pre></div>
+<p>An intermediate variable 'file_name' is used to store the file name which is
+constructed using the day number variable 'd'. Note the curly brackets '{ }'
+around the 'd' to separate the name from the following text within the string.
+The same value of d is then passed to the R script.</p>
+<h3 id="arithmetic-expressions">Arithmetic Expressions</h3>
+<p>Suppose that the example above needed another variable, say hours 'h', based on
+the day number such that 'h=d*24-12'. There are at least three different ways
+of doing this. The following all achieve the same result:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># set a value for h from d</span>
+<span class="c1"># using backticks and expr</span>
+<span class="nv">h</span><span class="o">=</span><span class="sb">`</span>expr<span class="w"> </span><span class="nv">$d</span><span class="w"> </span>*<span class="w"> </span><span class="m">24</span><span class="w"> </span>-<span class="w"> </span><span class="m">12</span><span class="sb">`</span>
+<span class="c1"># using let</span>
+<span class="nb">let</span><span class="w"> </span><span class="nv">h</span><span class="o">=</span>d*24-12
+<span class="c1"># using double parentheses</span>
+<span class="nv">h</span><span class="o">=</span><span class="k">$((</span><span class="nv">d</span><span class="o">*</span><span class="m">24</span><span class="o">+</span><span class="m">12</span><span class="k">))</span>
+</code></pre></div>
+<p>In general it is recommended to use double parentheses when working with bash
+scripting, it is the most stable of the three and behaves most closely wo other
+languages. In fact, the double parentheses construct was implemented in
+bash to allow a number of C-like expressions, including: </p>
+<ul>
+<li>The assignment operators '-=' and '+='</li>
+<li>The pre- and post- increment and decrement operators '--' and '++'</li>
+<li>The tertiary operator '?:' (for example 'y=x&lt;0?0:x') which returns one of two
+values depending on the preceding condition.</li>
+</ul>
+<h2 id="tests-and-conditions">Tests and Conditions</h2>
+<p>A condition can be used to test the value of a variable and to choose a course
+of action based on the result of that test. Within an 'IF' statement, the test
+can be enclosed within either single brackets '[ ]' or double brackets '[[ ]]'.
+There are both obvious and subtle differences between the two. Essentially,
+however, the double bracket construct is an extension to single brackets,
+available in bash and some other shells, which allows additional test
+operations and regular expressions (see section below).</p>
+<p>Note:</p>
+<p>If this extra functionality is not required, and if the script must remain
+portable (<em>i.e.</em> be <a href="https://en.wikipedia.org/wiki/POSIX">POSIX compliant</a>),
+then use should be limited to single brackets.</p>
+<p>Basic test conditions include arithmetic comparisons, string comparisons and
+a variety of file based checks (like existence, type, permissions (<em>etc.</em>)).
+To learn about all possible options, you can look at the man page (<code>man test</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="c1"># get filename from arguments</span>
+<span class="nv">file</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nb">echo</span><span class="w"> </span>Name:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span>
+<span class="nv">file_len</span><span class="o">=</span><span class="si">${#</span><span class="nv">file</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span>Name<span class="w"> </span>length:<span class="w"> </span><span class="s2">&quot;</span><span class="si">${#</span><span class="nv">file</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file_len</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="o">]</span>
+<span class="k">then</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;A long filename!&quot;</span>
+<span class="k">else</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;A short filename&quot;</span>
+<span class="k">fi</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="c1"># get filename from arguments</span>
+<span class="nv">file</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">file_len</span><span class="o">=</span><span class="si">${#</span><span class="nv">file</span><span class="si">}</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file_len</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="o">]</span>
+<span class="k">then</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;A long filename:&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>Filename:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>Name<span class="w"> </span>length:<span class="w"> </span><span class="s2">&quot;</span><span class="si">${#</span><span class="nv">file</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">break</span>
+<span class="k">fi</span>
+</code></pre></div>
+<p>In the first example, an extra message is output which changes based upon the
+length of the filename. In the second example, the loop only outputs a message
+when a long filename is found, and then the 'break' statement exits the loop.
+Note that for comparing numbers the test operators are '-eq', '-ne', '-lt',
+'-le', '- gt', and '-ge'. The operators '==', '!=', '&lt;', and '&gt;' are used for
+comparing strings with '&lt;' and '&gt;' referring to the lexicographical
+(alphabetical) sort order in the current locale. These require double brackets.
+Multiple conditions can be combined using the operators "&amp;&amp;" and "||" for
+logical AND and OR. (These are not the same as the single character operators
+'&amp;' and '|' which provide bitwise AND and OR.) To negate a condition use '!'.
+To override the default order of precedence, or to make intentions more
+obvious, use parentheses '( )' which also require double brackets:</p>
+<div class="highlight"><pre><span></span><code>$ if [ 3 -gt 2 ]; then echo &quot;3&gt;2 - T&quot;; else echo &quot;3&gt;2 - F&quot;; fi
+3&gt;2 - T
+$
+$ if [ $((3-5)) -gt 2 ]; then echo &quot;3-5&gt;2 - T&quot;; else echo &quot;3-5&gt;2 - F&quot;; fi
+3-5&gt;2 - F
+$
+$ if [[ ( $((3-5)) -gt 2 ) &amp;&amp; ( 3 -gt 2 ) ]]; then echo &quot; T&quot;; else echo &quot; F&quot;; fi
+F
+$
+$ if [[ ( $((3-5)) -gt 2 ) || ( 3 -gt 2 ) ]]; then echo &quot; T&quot;; else echo &quot; F&quot;; fi
+T
+$
+$ if [[ ( $((3-5)) -gt 2 ) || ! ( 3 -gt 2 ) ]]; then echo &quot; T&quot;; else echo &quot; F&quot;; fi
+F
+$
+$ if [[ &quot;lkjh&quot; &lt; &quot;asdf&quot; ]]; then echo &quot; T&quot;; else echo &quot; F&quot;; fi
+F
+</code></pre></div>
+<p>If regular expressions are used then the operator '=~' is used for checking for
+a match. Note, however, that the regular expression being matched should not
+include surrounding quotes:</p>
+<div class="highlight"><pre><span></span><code>$ if [[ &quot;lkjh&quot; =~ &quot;l..h&quot; ]]; then echo &quot; T&quot;; else echo &quot; F&quot;; fi
+F
+$
+$ if [[ &quot;lkjh&quot; =~ l..h ]]; then echo &quot; T&quot;; else echo &quot; F&quot;; fi
+T
+$
+</code></pre></div>
+<p>See the section below for more details of regular expressions.</p>
+<h2 id="control-flow">Control Flow</h2>
+<p>A simple for loop, iterating over a list of integers, was shown in the example
+above. However, the list being iterated over does not have to be numerical. In
+practice it is often required that a loop needs to be repeated for each string
+in a list of list of strings. The following example demonstrates the principle:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="c1"># get list of filenames</span>
+<span class="nv">files</span><span class="o">=</span><span class="k">$(</span>ls<span class="k">)</span>
+<span class="c1"># `;` is interpretted as a newline here, so alternatively &#39;do&#39; could be</span>
+<span class="c1"># placed on the next line and the `;` character can be removed.</span>
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$files</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="nb">echo</span><span class="w"> </span>Filename:<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span>Name<span class="w"> </span>length:<span class="w"> </span><span class="s2">&quot;</span><span class="si">${#</span><span class="nv">file</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
+<p>Also shown above were a few simple if statements. if statements can have more
+than one condition with additional conditions being preceded by 'elif' or 'else
+if'. An if statement can also be used to 'break' out of a surrounding for loop:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="c1"># get list of filenames</span>
+<span class="nv">files</span><span class="o">=</span><span class="k">$(</span>ls<span class="k">)</span>
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$files</span>
+<span class="w">    </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>Name:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2"> &quot;</span><span class="w"> </span><span class="o">]</span>
+<span class="w">        </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;File&quot;</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2"> &quot;</span><span class="w"> </span><span class="o">]</span>
+<span class="w">        </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Directory &quot;</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2"> &quot;</span><span class="w"> </span><span class="o">]</span>
+<span class="w">        </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Symbolic Link &quot;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Something else&quot;</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="c1"># get list of filenames</span>
+<span class="nv">files</span><span class="o">=</span><span class="k">$(</span>ls<span class="k">)</span>
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$files</span>
+<span class="w">    </span><span class="k">do</span>
+<span class="w">    </span><span class="nv">file_len</span><span class="o">=</span><span class="si">${#</span><span class="nv">file</span><span class="si">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file_len</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="o">]</span>
+<span class="w">        </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found a long filename:&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span>Filename:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span>Name<span class="w"> </span>length:<span class="w"> </span><span class="s2">&quot;</span><span class="si">${#</span><span class="nv">file</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="k">break</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Still looking...&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found a short filename:&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>Filename:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>Name<span class="w"> </span>length:<span class="w"> </span><span class="s2">&quot;</span><span class="si">${#</span><span class="nv">file</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
+<p>A while loop is similar to a for loop except that the loop is continued while a
+condition is met. This requires a variable to be set outside the loop and
+changed within the loop, and for it to be tested for the exit condition. The
+alternative 'until' loop continues until the condition is met:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="c1"># get short day names into array</span>
+<span class="nv">alldays</span><span class="o">=</span><span class="s2">&quot;Mo Tu We Th Fr Sa Su&quot;</span>
+<span class="nv">dn</span><span class="o">=(</span><span class="w"> </span><span class="nv">$alldays</span><span class="w"> </span><span class="o">)</span>
+<span class="c1"># loop through days</span>
+<span class="nv">day</span><span class="o">=</span><span class="m">1</span>
+<span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$day</span><span class="w"> </span>&lt;<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="o">]</span>
+<span class="w">    </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>Day:<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$day</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">dn</span><span class="p">[</span><span class="nv">$day</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nv">day</span><span class="o">=</span><span class="k">$((</span><span class="nv">day</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+<span class="k">done</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash</span>
+<span class="c1"># loop through days</span>
+<span class="nv">day</span><span class="o">=</span><span class="m">1</span>
+<span class="k">until</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$day</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="o">]</span>
+<span class="w">    </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;Day: </span><span class="nv">$day</span><span class="s2"> &quot;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nv">$day</span><span class="w"> </span><span class="k">in</span>
+<span class="w">        </span><span class="m">6</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">7</span><span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;weekend&quot;</span><span class="p">;;</span>
+<span class="w">        </span>*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;weekday&quot;</span><span class="p">;;</span>
+<span class="w">    </span><span class="k">esac</span>
+<span class="w">    </span><span class="nv">day</span><span class="o">=</span><span class="k">$((</span><span class="nv">day</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+<span class="k">done</span>
+</code></pre></div>
+<p>Also shown above is the case statement which is similar to an if statement with
+multiple conditions.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025, Sam Fletcher
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      
+    
+  </body>
+</html>

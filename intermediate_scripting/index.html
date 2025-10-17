@@ -1,0 +1,1024 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Exeter Omics Servers">
+      
+      
+        <meta name="author" content="Sam Fletcher">
+      
+      
+      
+        <link rel="prev" href="../basic_scripting/">
+      
+      
+      
+      <link rel="icon" href="../logo.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.37">
+    
+    
+      
+        <title>Intermediate Scripting - Exeter Omics Server Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intermediate-scripting" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Exeter Omics Server Documentation" class="md-header__button md-logo" aria-label="Exeter Omics Server Documentation" data-md-component="logo">
+      
+  <img src="../logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Exeter Omics Server Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Intermediate Scripting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Exeter-Omics-Servers/omics-server-documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Exeter Omics Server Documentation" class="md-nav__button md-logo" aria-label="Exeter Omics Server Documentation" data-md-component="logo">
+      
+  <img src="../logo.jpg" alt="logo">
+
+    </a>
+    Exeter Omics Server Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Exeter-Omics-Servers/omics-server-documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to the Exeter Omics Server wiki
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_Transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File transfer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Software_Miniconda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Software_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Module System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell Scripting Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Intermediate Scripting
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Intermediate Scripting
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wildcards-and-regular-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wildcards and Regular Expressions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wildcards and Regular Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wildcards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wildcards
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regular-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regular Expressions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aliases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cd-and-pushd" class="md-nav__link">
+    <span class="md-ellipsis">
+      cd and pushd
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="cd and pushd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cd" class="md-nav__link">
+    <span class="md-ellipsis">
+      cd
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pushd-popd-and-dirs" class="md-nav__link">
+    <span class="md-ellipsis">
+      pushd, popd and dirs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wildcards-and-regular-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wildcards and Regular Expressions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wildcards and Regular Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wildcards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wildcards
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regular-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regular Expressions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aliases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cd-and-pushd" class="md-nav__link">
+    <span class="md-ellipsis">
+      cd and pushd
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="cd and pushd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cd" class="md-nav__link">
+    <span class="md-ellipsis">
+      cd
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pushd-popd-and-dirs" class="md-nav__link">
+    <span class="md-ellipsis">
+      pushd, popd and dirs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="intermediate-scripting">Intermediate Scripting</h1>
+<p>This document covers some more intermediate scripting techniques one can use
+(mainly centred around bash, with some being more generally applicable).</p>
+<h2 id="wildcards-and-regular-expressions">Wildcards and Regular Expressions</h2>
+<p>Wildcards and regular expressions are used for filtering, and several useful
+commands used for filtering are given in the section on filtering, below.
+Visually, they appear very similar, but there are some very important
+differences. The usual use for wildcards is for selecting file and directory
+names on the command line as input to a command such as <code>ls</code>. Any wildcards are
+expanded to a list of arguments which is then passed to the command. In
+contrast, regular expressions are strings with very specific formats which are
+used by other commands for filtering. Since some aspects of regular exressions
+are very similar to wildcards, when they are specified as command arguments
+they will generally need to be protected from bash so that the command receives
+the correct input.</p>
+<h3 id="wildcards">Wildcards</h3>
+<p>The main wildcard which most users will already know is the asterisk, or star,
+<code>*</code> to match any number of characters. In a similar way, the question mark <code>?</code>
+will match a single character. To match any one of a set of characters, use
+square brackets <code>[ ]</code> to enclose the set, or to match anything not in the set,
+start with an exclamation mark <code>!</code>. Note, however, that none of these wildcards
+will match a leading dot <code>.</code> in a filename. Although these are not the only
+wildcard combinations which could be used for the same filtering, the following
+few examples serve to demonstrate the principles, first simple matching:</p>
+<div class="highlight"><pre><span></span><code>$ ls
+data1_in Day1out.log
+Data1.out Day2out.log
+data2_in Do_day.R
+Data2.out No_data.txt
+$ ls *.out
+Data1.out Data2.out
+$ ls ?ata1*
+data1_in Data1.out
+</code></pre></div>
+<p>The set of characters to match using <code>[ ]</code> can include a range of characters
+specified using a dash <code>-</code>. Note that just as filenames are case sensitive, so
+are any matches, so use <code>[a-zA-Z]</code> to match any letter (from the latin
+alphabet). Although not a wildcard, another useful construct to include here is
+list expansion using curly braces <code>{ }</code>. Each alternative match in the list is
+separated by a comma:</p>
+<div class="highlight"><pre><span></span><code>$ ls *o[_g]*
+Day1out.log Do_day.R
+Day2out.log No_data.txt
+$
+$ ls *a[1-9]*
+data1_in data2_in
+Data1.out Data2.out
+$ ls *a[!1-9]*
+Day1out.log Do_day.R
+Day2out.log No_data.txt
+$
+$ ls Da{ta,y}1*
+Data1.out Day1out.log
+</code></pre></div>
+<p>In each case, the wildcard is expanded to a list of arguments before being
+passed to the command, here ls. So, for example, '*.out' is expanded to
+'Data1.out Data2.out' before being passed to ls. Note that if the expansion is
+likely to result in a very long list of matches, and this list is passed to a
+command which is not one of the built in bash commands, then care is needed not
+to exceed the limit of the bash exec argument, usually 2^21 (just over 2
+million) characters. In practice, this would require a match to most of the
+files in a directory of 100,000 files with each filename being 20 characters
+long. The limit is more likely to be an issue if a full, long path is included
+in the wildcard match, and the path is retained in the result. For example,
+when listing the contents of a directory with ls the simplest option is to just
+give the name, or a wildcard, for the directory name. But what if a wilcard was
+also required for matching the filenames? Different results would be obtained
+by piping the list from ls through, for example, grep before the main command
+required. Compare the following two examples which compile a list of files from
+a directory using wildcards, though only the first line of each output is
+given:</p>
+<div class="highlight"><pre><span></span><code>$ ls /topfs/host/projects/Research_Project_MRC123456/UKBiodata/ABCD_Genetic
+_data/imputed_data*/Xsub*/BEST* | head -1
+/topfs/host/projects/Research_Project_MRC123456/UKBiodata/ABCD_Genetic_data
+/imputed_data_best_guess/Xsub_log_files/BEST_GUESS.e123456
+
+$ ls /topfs/host/projects/Research_Project_MRC123456/UKBiodata/ABCD_Genetic
+_data/imputed_data*/Xsub* | grep &quot;^BEST&quot; | head -1
+BEST_GUESS.e123456
+</code></pre></div>
+<p>In the first case, each wildcard match returns the full path with 133
+characters, in the second each returns just the filename with 18 characters.
+However, even including the full path, if this directory had 15,650 files in it
+there would still be room on the command line for a few more options!</p>
+<h2 id="regular-expressions">Regular Expressions</h2>
+<p>Use of square brackets <code>[ ]</code> in regular expressions is similar to their use in
+wildcards, however, to negate a set of characters, the caret <code>^</code> is used
+instead of <code>!</code>. Single characters are matched by a dot <code>.</code> not <code>?</code> and the star
+<code>*</code> is still used to match any number of characters, however, it requires a
+preceding character to match against, or a dot <code>.</code> to match any character any
+number of times (including none). Note that the caret is also used to match the
+beginning of a line, when not within a character set, and the dollar <code>$</code>
+matches the end of a line. A plus <code>+</code> is similar to <code>*</code>, however, the preceding
+character must be present at least once and will usually need to be escaped:
+<code>\+</code>.</p>
+<p>For the following examples, the same directory contents as for the examples
+above are piped through grep, though similar results could also be obtained by
+giving suitable arguments to ls. Note that, by default, ls outputs one entry
+per line when output is piped to another command. (Also, see below for more on
+grep.)</p>
+<div class="highlight"><pre><span></span><code>$ ls | grep &quot;.&quot; # all files
+data1_in
+Data1.out
+data2_in
+Data2.out
+Day1out.log
+Day2out.log
+Do_day.R
+No_data.txt
+
+$ ls | grep &quot;o[_g]&quot;
+Day1out.log
+Day2out.log
+Do_day.R
+No_data.txt
+
+$ ls | grep &quot;^d&quot;
+data1_in
+data2_in
+
+$ ls | grep &quot;a.*t&quot;
+data1_in
+Data1.out
+data2_in
+Data2.out
+Day1out.log
+Day2out.log
+No_data.txt
+
+$ ls | grep &quot;a.\+t&quot;
+Day1out.log
+Day2out.log
+No_data.txt
+
+$ ls | grep &quot;[^ng]$&quot;
+Data1.out
+Data2.out
+Do_day.R
+No_data.txt
+</code></pre></div>
+<p>There are also more complicated, extended pattern matching options, such as
+specifying the number of repeats or finding patterns which repeat. However,
+these are beyond the scope of this guide.</p>
+<h2 id="aliases">Aliases</h2>
+<p>Aliases are an intrinsic part of the interactive bash shell. The bash man page
+states that aliases "allow a string to be substituted for a word when it is
+used as the first word of a simple command". There are two main reasons for
+using aliases. The first is to effectively replace use of one command with
+another without removing the original command and replacing it with the
+replacement, or symbolic links. For example, it was mentioned earlier that
+running sh actually runs bash. This is achieved through a symbolic link as
+illustrated in the section on backticks, below. In contrast, that section also
+highlights that the traditional 'vi' editor is an alias for 'vim'.</p>
+<p>A list of aliases can be obtained by running 'alias' with no arguments. Or by
+giving alias an argument, any alias for that command will be reported, or an
+error given if there is no alias:</p>
+<div class="highlight"><pre><span></span><code>$ alias vi
+alias vi=&#39;vim&#39;
+$ alias vim
+-bash: alias: vim: not found
+</code></pre></div>
+<p>The 'which' command will report which command will be run when issuing the
+command. Here it is used to report which version of vi would be run when
+calling vi, showing that it is an alias. Then, adding the option '--version' to
+the underlying vim command reports its version (amongst a lot of other
+information):</p>
+<div class="highlight"><pre><span></span><code>$ which vi
+alias vi=&#39;vim&#39;
+/usr/bin/vim
+$ /usr/bin/vim --version
+VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Jul 23 2019 13:28:34)
+...
+Huge version without GUI. ...
+...
+</code></pre></div>
+<p>On some systems, however, which is also an alias defined to report if a command
+is an alias. To use the non- alias version, precede the command with a slash
+'\':</p>
+<div class="highlight"><pre><span></span><code>$ \which vi
+/usr/bin/vi
+$ /usr/bin/vi --version
+VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Jul 23 2019 13:27:50)
+...
+Small version without GUI. ...
+...
+$
+</code></pre></div>
+<p>Applying this technique to vi, it can be seen that running 'vi' invokes the
+alias and runs vim 'Huge version', whereas running '\vi' avoids the alias and
+runs the 'Small version':</p>
+<div class="highlight"><pre><span></span><code>$ vi --version
+VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Jul 23 2019 13:28:34)
+...
+Huge version without GUI. ...
+...
+$ \vi --version
+VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Jul 23 2019 13:27:50)
+...
+Small version without GUI. ...
+...
+$
+</code></pre></div>
+<p>The second reason for using aliases is convenience. Perhaps a command needs to
+be run regularly with the same arguments, or a command's fixed arguments are
+long winded to type each time. For example, to use a remote 'phpMyAdmin'
+installation for accessing a MySQL database, the following can be used to
+launch the web page interface from firefox:</p>
+<div class="highlight"><pre><span></span><code>$ firefox --new-window https://localhost/phpmyadmin/ &amp;
+Instead of typing this every time, an alias can be used. Here it is set and then used:
+$ alias phpmyadmin=&#39;firefox --new-window https://localhost/phpmyadmin/&#39;
+$ phpmyadmin &amp;
+</code></pre></div>
+<p>Note that there are no spaces around the equals '=' and there are quotes around
+what the alias is to be set to. In this regard, it is very similar to setting a
+bash variable. Also note that an alias will not call itself, so a definition
+such as the following (which gives ls it's colour output) will not result in a
+circular definition:</p>
+<div class="highlight"><pre><span></span><code>$ alias ls=&#39;ls --color=auto&#39;
+</code></pre></div>
+<p>If user defined aliases are required then they are often added to the .bashrc
+file so that they become active in every interactive shell. For convenience,
+another option is to define aliases in a separate file, for example '.aliases'
+and then to source this file from the .bashrc file.</p>
+<p>If an alias is set or used as part of a more complex, compound statement then
+there are added complications relating to when it is expanded. A full
+discussion is well beyond the scope of this guide. Suffice it to say that if an
+alias is defined on a separate line and not used in compound statements then no
+problems should arise.</p>
+<h2 id="cd-and-pushd">cd and pushd</h2>
+<p>The 'cd' command is a very basic bash command. However, there is one useful way
+in which its behaviour can be changed. Also of interest to some users is the
+'pushd' command which allows the user to keep a 'stack' of directories which
+have been visited, and to switch easily between them.</p>
+<h3 id="cd">cd</h3>
+<p>The main option of interest for using with cd is the '-P' flag. Without it, if
+cd is used to follow a symbolic link then the current directory path will
+contain the original location plus the link:</p>
+<div class="highlight"><pre><span></span><code>$ ls -logd data*
+drwxr-x--- 1 39 Feb 17 17:23 data2
+lrwxrwxrwx 1 5 Feb 19 10:16 data4 -&gt; data2
+$ pwd
+/home/abc123
+$ cd data4
+$ pwd
+/home/abc123/data4
+</code></pre></div>
+<p>If '-P' is added then the new location is resolved so that the path is the true
+path of the destination:</p>
+<div class="highlight"><pre><span></span><code>$ cd
+$ pwd
+/home/abc123
+$ cd -P data4
+$ pwd
+/home/abc123/data2
+</code></pre></div>
+<p>The '-L' option is very similar to '-P', the difference being at what stage any
+occurrances of '..' are resolved when resolving any links in the path. Compare
+the following using '-P':</p>
+<div class="highlight"><pre><span></span><code>$ ls -log subdir2
+lrwxrwxrwx 1 5 Feb 19 16:56 subdir2 -&gt; data2/subdir2
+$ pwd
+/home/abc123
+$ cd -P subdir2/..
+$ pwd
+/home/abc123/data2
+with the following which uses &#39;-L&#39;:
+$ cd
+$ pwd
+/home/abc123
+$ cd -L subdir2/..
+$ pwd
+/home/abc123
+</code></pre></div>
+<p>With '-P' the link was resolved first: 'subdir2' was resolved to
+'data2/subdir2' and then the '..' took the path up to 'data2'. With '-L' the
+'..' was resolved first: 'subdir2/..' was resolved to '.' which removed the
+link and left the path at the current directory.</p>
+<h3 id="pushd-popd-and-dirs">pushd, popd and dirs</h3>
+<p>The 'pushd' command is very similar to cd except that the previous directory
+path is remembered on a stack. To see what is currently on the stack, use
+'dirs', which should at least have the current directory:</p>
+<div class="highlight"><pre><span></span><code>$ cd
+$ dirs
+~
+$ pwd
+/home/abc123
+</code></pre></div>
+<p>Using pushd to change directory and add to the stack also lists the new stack:</p>
+<div class="highlight"><pre><span></span><code>$ pushd data2
+~/data2 ~
+$ pwd
+/home/abc123/data2
+$ pushd subdir2
+~/data2/subdir2 ~/data2 ~
+$ pwd
+/home/abc123/data2/subdir2
+</code></pre></div>
+<p>The pushd command can also be used to switch between paths already on the
+stack. With no options given it will switch the top two paths:</p>
+<div class="highlight"><pre><span></span><code>$ pushd
+~/data2 ~/data2/subdir2 ~
+$ pwd
+/home/abc123/data2
+With a number given it will rotate the stack:
+$ pushd +2
+~ ~/data2 ~/data2/subdir2
+$ pwd
+/home/abc123
+$ pushd -0
+~/data2/subdir2 ~ ~/data2
+$ pwd
+/home/abc123/data2/subdir2
+</code></pre></div>
+<p>If a symbolic link is on the path used given to pushd then it is used as is .
+That is, the path is not resolved to its true path:</p>
+<div class="highlight"><pre><span></span><code>$ pushd
+~ ~/data2/subdir2 ~/data2
+$ pushd data4
+~/data4 ~ ~/data2/subdir2 ~/data2
+$ pwd
+/home/abc123/data4
+</code></pre></div>
+<p>If the true path is preferred then 'cd -P' can be used after the use of pushd:</p>
+<div class="highlight"><pre><span></span><code>$ cd -P . # &#39;fix&#39; the path from the previous pushd
+$ dirs
+~/data2 ~ ~/data2/subdir2 ~/data2
+$ pwd
+/home/abc123/data2
+$ pushd . # add an extra path to the stack (any path)
+~/data2 ~/data2 ~ ~/data2/subdir2 ~/data2
+$ cd -P ~/subdir2 # change to the required true path
+$ dirs
+~/data2/subdir2 ~/data2 ~ ~/data2/subdir2 ~/data2
+</code></pre></div>
+<p>To remove paths from the stack use 'popd'. As with pushd, a number can be also
+given:</p>
+<div class="highlight"><pre><span></span><code>$ popd
+~/data2 ~ ~/data2/subdir2 ~/data2
+$ popd +2
+~/data2 ~ ~/data2
+</code></pre></div>
+<p>The stack can be cleared completely by passing '-c' to the dirs command. Using
+Other Commands in Bash</p>
+<p>A few simple examples of using other commands within bash were given in the
+Basic Linux guide. More advanced usage including filtering and combining
+commands is given in a separate guide.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025, Sam Fletcher
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      
+    
+  </body>
+</html>
